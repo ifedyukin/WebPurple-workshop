@@ -1,0 +1,80 @@
+@import "../node_modules/normalize.css/normalize.css";
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i|Ubuntu:300,300i,400,400i,500,500i,700,700i&subset=cyrillic');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Ubuntu', sans-serif;
+  background: white;
+}
+
+h2 {
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+}
+
+section {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
+  padding: 25px;
+}
+
+.header-links {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;  
+  font-size: 18px;
+}
+
+.header-links a {
+  color: black;
+}
+
+.header-links a::before {
+  content: "» ";
+  margin-left: 25px;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 25px;
+  font-family: 'Playfair Display', serif;
+}
+
+.title a {
+  color: black;
+  text-decoration: none;
+}
+
+.subtitle {
+  color: gray;
+}
+
+.main {
+  padding-top: 25px;
+}
+
+.main img {
+  width: 100%;
+}
+
+.post {
+  padding: 25px;
+}
+
+.post-date {
+  color: gray;
+  font-size: 14px;
+}
+
+.post-title {
+  color: black;
+  text-decoration: underline;
+}
