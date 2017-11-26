@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i|Ubuntu:300,300i,400,400i,500,500i,700,700i&subset=cyrillic');
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Ubuntu', sans-serif;
+  background: white;
+}
+
+h2 {
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+}
+
+section {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
+  padding: 25px;
+}
+
+.header-links {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+}
+
+.header-links a {
+  color: black;
+}
+
+.header-links a::before {
+  content: "» ";
+  margin-left: 25px;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 25px;
+  font-family: 'Playfair Display', serif;
+}
+
+.title a {
+  color: black;
+  text-decoration: none;
+}
+
+.subtitle {
+  color: gray;
+}
+
+.main {
+  padding-top: 25px;
+}
+
+.main img {
+  width: 100%;
+}
+
+.post {
+  padding: 25px;
+}
+
+.post-date {
+  color: gray;
+  font-size: 14px;
+}
+
+.post-title {
+  color: black;
+  text-decoration: underline;
+}
+
+.post-text img {
+  max-width: 80%;
+  max-height: 500px;
+  margin-left: 10%;
+}
+
+.login-container {
+  width: 400px;
+  margin: 50px auto;
+}
+
+.login-error {
+  color: red;
+}
+
+.login-form input {
+  width: 75%;
+  text-align: center;
+  margin: 5px auto;
+  display: block;
+  padding: 5px;
+}
+
+.panel-container {
+  width: 600px;
+  margin: auto;
+}
+
+.panel-container__post {
+  display: flex;
+  border-bottom: 1px dashed grey;
+}
+
+.panel-container__post .post {
+  width: 80%;
+}
+
+.panel-container__buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.panel-container__buttons a {
+  color: black;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.post-edit {
+  display: flex;
+  justify-content: center;
+}
+
+.post-edit label {
+  display: flex;
+  justify-content: space-between;
+  margin: 7px 0;
+}
+
+.post-edit input[type="submit"] {
+  float: right;
+  margin-top: 7px;
+  background: white;
+  border-radius: 0;
+  color: black;
+  cursor: pointer;
+}
+
+.post-edit__title {
+  width: 409px;
+  margin: 7px 0;
+}
+
+.post-edit__title input {
+  width: 350px;
+}
+
+.post-edit__url {
+  width: 412px;
+  margin: 7px 0;
+}
+
+.post-edit__url input {
+  width: 350px;
+}
+
+.post-edit__preview {
+  display: block;
+  float: right;
+  margin: 0 !important;
+}
+
+.post-edit__preview input {
+  margin-left: 5px;
+}
+
+.post-edit__previewBlock {
+  width: 820px;
+  border: 1px dashed grey;
+  padding: 0;
+}
+
+.panel-container__newPost {
+  margin-top: 20px;
+  display: block;
+  position: fixed;
+  left: 72px;
+  padding: 7px;
+  border: 1px dashed grey;
+  text-decoration: none;
+  color: black;
+}
+
+@media screen and (max-width: 660px) {
+  header {
+    display: block;
+  }
+
+  .header-links {
+    display: block;
+  }
+
+  .header-links a {
+    display: block;
+  }
+
+  .main {
+    padding-top: 0;
+  }
+}

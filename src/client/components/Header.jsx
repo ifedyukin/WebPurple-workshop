@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export const Header = ({ title, subtitle, links = [], img }) => (
+export const Header = ({ title, subtitle, links = [] }) => (
   <header>
     <div className="header-titles">
       {title ? <div className="title"><Link to="/">{title}</Link></div> : null}
