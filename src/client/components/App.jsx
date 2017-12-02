@@ -51,7 +51,6 @@ export class App extends React.Component {
   render() {
     const { title, subtitle, links, img, posts, vk } = this.state;
     const token = cookie.get('token');
-
     return (
       <section>
         <Header title={title} subtitle={subtitle} links={links} />
