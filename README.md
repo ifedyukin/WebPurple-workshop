@@ -264,3 +264,9 @@ posts.map(post => <Post key={post._id} {...post} />)
 
 #### Практика
 В файле `src/client/components/posts/Post.jsx` описать разметку поста. Произвести стилизацию компонента, описав стили в файле `src/client/styles/post.css`.
+
+
+## Обратная связь
+* Анонимно отзывы и предложения можно оставить здесь - [Google.Form](https://docs.google.com/forms/d/1z63kTIK6nxlkhQC0hdAdzC3Lvr84taen7lkDY1CqotI/viewform?edit_requested=true);
+* E-mail для связи, вопросов и т.п. - [Igor_Fedyukin@epam.com](mailto:Igor_Fedyukin@epam.com);
+* Презентация - [Google.Docs](https://docs.google.com/presentation/d/1EPcDxdGtDa9DydYDwEDhZObEt4mMbpzguRwGzCjWOR0/edit?usp=sharing).
