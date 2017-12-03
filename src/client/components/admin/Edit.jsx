@@ -22,7 +22,7 @@ export class Edit extends React.Component {
   componentDidMount() {
     const url = this.props.match.params.url;
     if (url) {
-      fetch(`http://localhost:3030/api/pages/${url.toString()}?md`)
+      fetch(`http://localhost:3030/api/posts/${url.toString()}?md`)
         .then(response => response.json())
         .then(response => this.setState({ ...response }))
         .catch(() => this.setState({ error: 404 }));
@@ -40,7 +40,7 @@ export class Edit extends React.Component {
     if (url) {
 
     } else {
-      fetch('http://localhost:3030/api/pages', {
+      fetch('http://localhost:3030/api/posts', {
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
           'Authorization': cookie.get('token'),

@@ -35,17 +35,11 @@ export class App extends React.Component {
   }
 
   getVk() {
-    fetch('http://localhost:3030/api/vk')
-      .then(response => response.json())
-      .then(response => this.setState({ vk: response }));
+    // получаем и сохраняем записи из ВКонтакте
   }
 
   updatePosts = () => {
-    fetch('http://localhost:3030/api/pages')
-      .then(response => response.json())
-      .then(response => this.setState({
-        posts: response.pages,
-      }));
+    // получаем и сохраняем записи блога
   }
 
   render() {

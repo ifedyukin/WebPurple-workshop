@@ -1,0 +1,19 @@
+.post {
+  padding: 25px;
+}
+
+.post-date {
+  color: gray;
+  font-size: 14px;
+}
+
+.post-title {
+  color: black;
+  text-decoration: underline;
+}
+
+.post-text img {
+  max-width: 80%;
+  max-height: 500px;
+  margin-left: 10%;
+}
