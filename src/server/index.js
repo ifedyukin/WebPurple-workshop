@@ -9,7 +9,7 @@ import fetch from 'node-fetch';
 
 import config from './config';
 import authRoute from './routes/auth';
-import pageRoute from './routes/page';
+import postRoute from './routes/post';
 import errorHandler from './middlewares/errorHandler';
 import markdownConvert from './middlewares/markdownConvert';
 
@@ -56,7 +56,7 @@ if (isProd) {
 }
 app.use(express.static('public'));
 app.use('/api', authRoute);
-app.use('/api', pageRoute, markdownConvert);
+app.use('/api', postRoute, markdownConvert);
 app.use('*', async (req, res) => {
   const indexPage = await fetch(req.protocol + '://' + req.get('host'))
     .then(async (response) => response.text())

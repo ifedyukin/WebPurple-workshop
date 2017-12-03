@@ -13,13 +13,13 @@ export class Panel extends React.Component {
   }
 
   loadPosts() {
-    fetch('http://localhost:3030/api/pages')
+    fetch('http://localhost:3030/api/posts')
       .then(response => response.json())
-      .then(response => this.setState({ posts: response.pages }));
+      .then(response => this.setState({ posts: response.posts }));
   }
 
   onDelete(_id) {
-    fetch(`http://localhost:3030/api/pages/${_id}`, {
+    fetch(`http://localhost:3030/api/posts/${_id}`, {
       method: 'DELETE',
       headers: {
         'Authorization': cookie.get('token'),

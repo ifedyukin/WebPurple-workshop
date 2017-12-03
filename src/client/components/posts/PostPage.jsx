@@ -6,7 +6,7 @@ export class PostPage extends React.Component {
 
   componentDidMount() {
     const postUrl = this.props.match.params.url.toString();
-    fetch(`http://localhost:3030/api/pages/${postUrl}`)
+    fetch(`http://localhost:3030/api/posts/${postUrl}`)
       .then(response => response.json())
       .then(response => this.setState({ ...response }))
       .catch(() => this.setState({ error: 404 }));

@@ -7,6 +7,10 @@ export const signup = async (req, res, next) => {
   const credentials = req.body;
   let user;
 
+  if (credentials.key !== config.createKey) {
+    res.json({ error: 'Incorrect key!' });
+  }
+
   try {
     user = await User.create(credentials);
   } catch ({ message }) {

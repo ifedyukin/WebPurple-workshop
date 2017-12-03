@@ -41,17 +41,16 @@ export class App extends React.Component {
   }
 
   updatePosts = () => {
-    fetch('http://localhost:3030/api/pages')
+    fetch('http://localhost:3030/api/posts')
       .then(response => response.json())
       .then(response => this.setState({
-        posts: response.pages,
+        posts: response.posts,
       }));
   }
 
   render() {
     const { title, subtitle, links, img, posts, vk } = this.state;
     const token = cookie.get('token');
-
     return (
       <section>
         <Header title={title} subtitle={subtitle} links={links} />

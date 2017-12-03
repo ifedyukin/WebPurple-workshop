@@ -3,4 +3,4 @@ export const convertDate = (str) => {
   return `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`;
 };
 
-export const sortByDate = arr => arr.sort((a, b) => a.createdAt < b.createdAt)
+export const sortByDate = arr => arr.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));

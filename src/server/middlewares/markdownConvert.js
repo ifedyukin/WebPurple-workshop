@@ -1,16 +1,16 @@
 import { markdown } from 'markdown';
 
-const convertToHtml = (page) => {
-  page.body = markdown.toHTML(page.body);
-  return page;
+const convertToHtml = (post) => {
+  post.body = markdown.toHTML(post.body);
+  return post;
 }
 
 export default async (req, res, next) => {
-  const { pages, page } = res;
+  const { posts, post } = res;
   if (req.query.md !== undefined ) {
-    return res.json(page);
+    return res.json(post);
   }
-  if (page) res.json(convertToHtml(page));
-  if (pages) res.json({ pages: pages.map(convertToHtml) });
+  if (post) res.json(convertToHtml(post));
+  if (posts) res.json({ posts: posts.map(convertToHtml) });
   next();
 }
