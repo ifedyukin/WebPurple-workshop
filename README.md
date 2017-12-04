@@ -31,6 +31,7 @@
   ```bash
   npm install
   ```
+* Запускаем Mongod - [инструкция](https://docs.mongodb.com/manual/administration/install-community/).
 * Запускаем проект
   ```bash
   npm start
