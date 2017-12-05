@@ -23,7 +23,10 @@ export class Login extends React.Component {
     })
       .then(response => response.json())
       .then(response => {
-        cookies.set('token', response, { path: '/' });
+        if (typeof response === 'string') {
+          cookies.set('token', response, { path: '/' });
+          this.props.onLogin();
+        }
       })
       .catch(() => this.setState({ error: true }))
   }
