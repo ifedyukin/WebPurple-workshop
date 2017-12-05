@@ -48,6 +48,8 @@ export class App extends React.Component {
       }));
   }
 
+  onLogin = () => this.forceUpdate();
+
   render() {
     const { title, subtitle, links, img, posts, vk } = this.state;
     const token = cookie.get('token');
@@ -58,9 +60,9 @@ export class App extends React.Component {
           <Route exact path='/' render={() => <MainPage posts={sortByDate(posts.concat(vk))} img={img} />} />
           <Route exact path='/vk' render={() => <MainPage posts={sortByDate(vk)} img={img} />} />
           <Route exact path='/blog' render={() => <MainPage posts={sortByDate(posts)} img={img} />} />
-          <Route exact path='/admin' render={token ? () => <Panel update={this.updatePosts} /> : <Login />} />
-          <Route exact path='/edit' render={token ? (props) => <Edit {...props} update={this.updatePosts} /> : <Login />} />
-          <Route path='/edit/:url' render={token ? (props) => <Edit {...props} update={this.updatePosts} /> : <Login />} />
+          <Route exact path='/admin' render={token ? () => <Panel update={this.updatePosts} /> : () => <Login onLogin={this.onLogin} />} />
+          <Route exact path='/edit' render={token ? (props) => <Edit {...props} update={this.updatePosts} /> : () => <Login onLogin={this.onLogin} />} />
+          <Route path='/edit/:url' render={token ? (props) => <Edit {...props} update={this.updatePosts} /> : () => <Login onLogin={this.onLogin} />} />
           <Route path='/:url' render={(props) => <PostPage {...props} />} />
           <Route path='*' render={() => <MainPage posts={sortByDate(posts.concat(vk))} img={img} />} />
         </Switch>
