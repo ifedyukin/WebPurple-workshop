@@ -200,6 +200,16 @@ const posts = wall.response.items
 * password;
 * key - ключ из `src/server/config/index.js` - `createKey`.
 
+```javascript
+fetch('http://localhost:3030/api/signup', {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        method: 'POST',
+        body: `login=root&password=toor&key=webpurple_secret`,
+      })
+```
+
 > :exclamation: Для этого можно обратиться к лекторам или воспользоваться Postman, а так же можно прямо из консоли послать запрос с помощью `fetch`.
 
 С этими данными можно зайти в панель администратора по адресу `localhost:3030/admin` и создать несколько тестовых записей.    
