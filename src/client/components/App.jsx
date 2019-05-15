@@ -15,15 +15,19 @@ export class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      title: 'React blog',
-      subtitle: 'My personal blog',
+      title: 'Alexander Titov',
+      subtitle: 'My movies collections',
       img: '/images/image.jpg',
       links: [
-        { label: 'All posts', url: '/' },
-        { label: 'Blog posts', url: '/blog' },
+        { label: 'Movies', url: '/movies' },
+        { label: 'Directors', url: '/directors' },
+        { label: 'Genres', url: '/genres' },
         { label: 'VK posts', url: '/vk' },
         { label: 'WebPurple', url: 'http://www.webpurple.net' },
       ],
+      movies: [],
+      directors: [],
+      genres: [],
       posts: [],
       vk: [],
     }
@@ -35,11 +39,17 @@ export class App extends React.Component {
   }
 
   getVk() {
-    // получаем и сохраняем записи из ВКонтакте
+    fetch('http://localhost:3030/api/vk')
+      .then(response => response.json())
+      .then(response => this.setState({ vk: response }));
   }
 
   updatePosts = () => {
-    // получаем и сохраняем записи блога
+    fetch('http://localhost:3030/api/posts')
+      .then(response => response.json())
+      .then(response => this.setState({
+        posts: response.posts,
+      }));
   }
   onLogin = () => this.forceUpdate();
 

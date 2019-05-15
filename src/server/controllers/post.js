@@ -5,16 +5,13 @@ import config from '../config/';
 import { getVkPostBody } from '../helpers';
 
 export async function create(req, res, next) {
-  // Получаем информацию о записи из тела запроса
   const postData = req.body;
-  // Получаем id пользователя из запроса
   const userId = req.user._id;
-  // Записываем пользователя в авторы поста
+
   postData.userId = userId;
 
   let post;
   try {
-    // Создаём запись в БД
     post = await Post.create(postData);
   } catch ({ message }) {
     return next({
@@ -23,16 +20,14 @@ export async function create(req, res, next) {
     });
   }
 
-  // Записываем созданный пост в объект ответа
   res.post = post;
-  // Переходим к следующему обработчику
   next();
 }
 
 export async function getAll(req, res, next) {
   let posts;
   try {
-    // posts = все посты из БД
+    posts = await Post.find({});
   } catch ({ message }) {
     return next({
       status: 500,
@@ -49,7 +44,7 @@ export async function getPostByUrl(req, res, next) {
 
   let post;
   try {
-    // post = одна запись, удовлетворяющая поиску по `url`
+    post = await Post.findOne({ url });
   } catch ({ message }) {
     return next({
       status: 500,
@@ -82,8 +77,8 @@ export async function deletePost(req, res, next) {
   }
 
   try {
-    // удалить запись post
-   } catch ({ message }) {
+    await post.remove();
+  } catch ({ message }) {
     return next({
       status: 500,
       message
@@ -132,10 +127,11 @@ export async function updatePost(req, res, next) {
 
 export async function getVk(req, res, next) {
   const { vk_token, vk_user } = config;
-  // определите const wall
+  const wall = await fetch('https://api.vk.com/method/wall.get?filter=owner&owner_id=' + vk_user + '&access_token=' + vk_token + '&v=5.69')
+    .then(response => response.json());
 
   const posts = wall.response.items
-    .filter(/* условие фильтра */)
+    .filter(post => post.post_type === 'post')
     .map(post => ({
       _id: post.id,
       url: `https://vk.com/wall${vk_user}_${post.id}`,
