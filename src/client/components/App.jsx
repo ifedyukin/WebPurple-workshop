@@ -3,6 +3,7 @@ import Cookie from 'universal-cookie';
 import { Switch, Route } from 'react-router-dom'
 import { Header } from './Header';
 import { PostPage } from './posts/PostPage';
+import { MoviePage } from './movies/MoviePage';
 import { Panel } from './admin/Panel';
 import { Login } from './admin/Login';
 import { MainPage } from './MainPage';
@@ -22,14 +23,11 @@ export class App extends React.Component {
         { label: 'Movies', url: '/movies' },
         { label: 'Directors', url: '/directors' },
         { label: 'Genres', url: '/genres' },
-        { label: 'VK posts', url: '/vk' },
-        { label: 'WebPurple', url: 'http://www.webpurple.net' },
       ],
       movies: [],
       directors: [],
       genres: [],
       posts: [],
-      vk: [],
     }
   }
 
@@ -67,6 +65,7 @@ export class App extends React.Component {
           <Route exact path='/edit' render={token ? (props) => <Edit {...props} update={this.updatePosts} /> : () => <Login onLogin={this.onLogin} />} />
           <Route path='/edit/:url' render={token ? (props) => <Edit {...props} update={this.updatePosts} /> : () => <Login onLogin={this.onLogin} />} />
           <Route path='/:url' render={(props) => <PostPage {...props} />} />
+          <Route path='/:url' render={(props) => <MoviePage {...props} />} />
           <Route path='*' render={() => <MainPage posts={sortByDate(posts.concat(vk))} img={img} />} />
         </Switch>
       </section>

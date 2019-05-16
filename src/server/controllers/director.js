@@ -5,17 +5,17 @@ import config from '../config/';
 
 // спросить!!!
 export async function create(req, res, next) {
-    // Получаем информацию о записи из тела запроса
-    const postData = req.body;
-    // Получаем id пользователя из запроса
-    const userId = req.user._id;
-    // Записываем пользователя в авторы поста
-    postData.userId = userId;
+    // // Получаем информацию о записи из тела запроса
+    // const postData = req.body;
+    // // Получаем id пользователя из запроса
+    // const userId = req.user._id;
+    // // Записываем пользователя в авторы поста
+    // postData.userId = userId;
   
-    let post;
+    let director;
     try {
       // Создаём запись в БД
-      post = await Post.create(postData);
+      director = await Director.create();
     } catch ({ message }) {
       return next({
         status: 400,
@@ -24,7 +24,7 @@ export async function create(req, res, next) {
     }
   
     // Записываем созданный пост в объект ответа
-    res.post = post;
+    res.director = director;
     // Переходим к следующему обработчику
     next();
 }
