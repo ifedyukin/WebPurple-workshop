@@ -32,23 +32,23 @@ export class App extends React.Component {
   }
 
   componentDidMount() {
-    this.getVk();
-    this.updatePosts();
+    // this.getVk();
+    // this.updatePosts();
   }
 
-  getVk() {
-    fetch('http://localhost:3030/api/vk')
-      .then(response => response.json())
-      .then(response => this.setState({ vk: response }));
-  }
+//   getVk() {
+//     fetch('http://localhost:3030/api/vk')
+//       .then(response => response.json())
+//       .then(response => this.setState({ vk: response }));
+//   }
 
-  updatePosts = () => {
-    fetch('http://localhost:3030/api/posts')
-      .then(response => response.json())
-      .then(response => this.setState({
-        posts: response.posts,
-      }));
-  }
+//   updatePosts = () => {
+//     fetch('http://localhost:3030/api/posts')
+//       .then(response => response.json())
+//       .then(response => this.setState({
+//         posts: response.posts,
+//       }));
+//   }
   onLogin = () => this.forceUpdate();
 
   render() {
@@ -58,7 +58,8 @@ export class App extends React.Component {
       <section>
         <Header title={title} subtitle={subtitle} links={links} />
         <Switch>
-          <Route exact path='/' render={() => <MainPage posts={sortByDate(posts.concat(vk))} img={img} />} />
+          <Route exact path='/movies' render={() => <MoviePage />} />
+          {/* <Route exact path='/' render={() => <MainPage posts={sortByDate(posts.concat(vk))} img={img} />} />
           <Route exact path='/vk' render={() => <MainPage posts={sortByDate(vk)} img={img} />} />
           <Route exact path='/blog' render={() => <MainPage posts={sortByDate(posts)} img={img} />} />
           <Route exact path='/admin' render={token ? () => <Panel update={this.updatePosts} /> : () => <Login onLogin={this.onLogin} />} />
@@ -66,7 +67,7 @@ export class App extends React.Component {
           <Route path='/edit/:url' render={token ? (props) => <Edit {...props} update={this.updatePosts} /> : () => <Login onLogin={this.onLogin} />} />
           <Route path='/:url' render={(props) => <PostPage {...props} />} />
           <Route path='/:url' render={(props) => <MoviePage {...props} />} />
-          <Route path='*' render={() => <MainPage posts={sortByDate(posts.concat(vk))} img={img} />} />
+          <Route path='*' render={() => <MainPage posts={sortByDate(posts.concat(vk))} img={img} />} /> */}
         </Switch>
       </section>
     );

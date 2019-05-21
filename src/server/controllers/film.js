@@ -30,19 +30,19 @@ export async function create(req, res, next) {
 }
 
 export async function getAll(req, res, next) {
-    let films;
+    let films = [];
 
     try {
-        films = await Film.find();
+        films = await Film.find({});
     } catch ({ message }) {
         return next({
             status: 500,
             message
         });
     }
-  
-    res.films = films;
-    next();
+
+    res.send(films);
+    // next();
 }
 
 export async function deleteFilm(req, res, next) {

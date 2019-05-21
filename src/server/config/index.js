@@ -1,5 +1,5 @@
 const config = {
-  database: 'mongodb://localhost/movies',
+  database: 'mongodb://localhost/database',
   port: 3030,
   secret: 'webpurple_secret',
   createKey: 'webpurple_create',

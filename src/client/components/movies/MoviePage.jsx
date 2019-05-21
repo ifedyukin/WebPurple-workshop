@@ -1,17 +1,21 @@
 import React from 'react';
-import { Movie } from './Movie';
+import { MoviesList } from './MovieList';
 
 export class MoviePage extends React.Component {
-    state = {};
-  
+    state = {
+        movies: [],
+        error: false
+    };
+
     componentDidMount() {
-      fetch(`http://localhost:3030/movies`)
-        .then(response => response.json())
-        .then(response => this.setState({ ...response }))
-        .catch(() => this.setState({ error: 404 }));
+        fetch(`http://localhost:3030/api/films`)
+            .then(response => response.json())
+            .then(response => this.setState({ movies: response }))
+            .catch(() => this.setState({ error: true }));
     }
-  
+
     render() {
-      return this.state.error ? <p>404</p> : <Movie {...this.state} />;
+        console.log(this.state.movies)
+        return this.state.error ? <p>404</p> : <MoviesList movies={this.state.movies} />;
     }
   }
